@@ -1,4 +1,8 @@
-# This is a placeholder class.
-class template {
-  anchor { 'Hello_World': }
+class sergiobuj {
+  notice("init.pp for sergiobuj")
+
+  include boxen
+  include git
+
+  include preferences
 }

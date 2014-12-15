@@ -1,2 +1,24 @@
-mod 'boxen', '3.6.1', :github_tarball => 'boxen/puppet-boxen'
-mod 'stdlib', '4.1.0', :github_tarball => "puppetlabs/puppetlabs-stdlib"
+# Shortcut for a module from GitHub's boxen organization
+def github(name, *args)
+  options ||= if args.last.is_a? Hash
+    args.last
+  else
+    {}
+  end
+
+  if path = options.delete(:path)
+    mod name, :path => path
+  else
+    version = args.first
+    options[:repo] ||= "boxen/puppet-#{name}"
+    mod name, version, :github_tarball => options[:repo]
+  end
+end
+
+github "boxen", "3.7.0"
+github "flux", "1.0.1"
+github "git", "2.7.0"
+github "osx", "2.8.0"
+github "vundle", "0.0.2", :repo => "bdossantos/puppet-vundle"
+github "stdlib", "4.4.0", :repo => "puppetlabs/puppetlabs-stdlib"
+
