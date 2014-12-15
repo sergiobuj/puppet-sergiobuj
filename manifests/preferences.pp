@@ -1,7 +1,6 @@
 # Preferences for sergiobuj
 class sergiobuj::preferences {
   notice('Setting up gitconfig for sergiobuj')
-
   git::config::global {
     'user.name':  value => 'Sergio Botero';
     'user.email': value => 'sergio@ride.com';
@@ -30,5 +29,14 @@ class sergiobuj::preferences {
     user   => $::luser
   }
 
+  notice('OSX settings for sergiobuj')
+  include osx::dock::position
+  include osx::dock::autohide
+  include osx::global::disable_autocorrect
+  include osx::global::disable_key_press_and_hold
+  include osx::finder::unhide_library
+  include osx::no_network_dsstores
+  include osx::software_update
+  include osx::keyboard::capslock_to_control
 }
 

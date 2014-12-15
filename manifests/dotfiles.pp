@@ -5,7 +5,8 @@ class sergiobuj::dotfiles {
 
   # This is just a test
   file { 'myvimrc':
-    path => "/Users/${::boxen_user}/Desktop/",
+    ensure  => present,
+    path    => "/Users/${::boxen_user}/Desktop/myvimrc",
   }
 }
 
