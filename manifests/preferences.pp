@@ -1,5 +1,6 @@
-class preferences {
-  notice("Setting up gitconfig for sergiobuj")
+# Preferences for sergiobuj
+class sergiobuj::preferences {
+  notice('Setting up gitconfig for sergiobuj')
 
   git::config::global {
     'user.name':  value => 'Sergio Botero';
@@ -20,7 +21,7 @@ class preferences {
     'github.user':  value => 'sergiobuj';
   }
 
-  notice("Setting up osx preferences for sergiobuj")
+  notice('Setting up osx preferences for sergiobuj')
   boxen::osx_defaults { '1 min delay for password dialog on screensaver':
     ensure => present,
     domain => 'com.apple.screensaver',
