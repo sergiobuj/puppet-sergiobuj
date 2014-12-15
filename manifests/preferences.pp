@@ -1,11 +1,7 @@
 # Preferences for sergiobuj
 class sergiobuj::preferences {
+
   notice('Setting up gitconfig for sergiobuj')
-
-  include boxen
-  include git
-  include osx
-
   git::config::global {
     'user.name':  value => 'Sergio Botero';
     'user.email': value => 'sergio@ride.com';
