@@ -4,9 +4,8 @@ class sergiobuj::dotfiles {
   notice('Setting up dotfiles for sergiobuj')
 
   # This is just a test
-  file { 'vimrc':
-    path => '~/Desktop/dotvimrc',
-    ensure => present
+  file { 'myvimrc':
+    path => "/Users/${::boxen_user}/Desktop/",
   }
 }
 
