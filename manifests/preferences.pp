@@ -29,7 +29,6 @@ class sergiobuj::preferences {
     user   => $::luser
   }
 
-  notice('OSX settings for sergiobuj')
   include osx::dock::position
   include osx::dock::autohide
   include osx::global::disable_autocorrect
