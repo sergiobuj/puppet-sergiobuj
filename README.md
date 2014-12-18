@@ -1,64 +1,46 @@
-# Using this Template
+# Personal Puppet module for Boxen
 
-Bootstrap it:
-
-```
-mkdir -p ~/src/boxen/puppet-mynewmodule
-cd ~/src/boxen/puppet-mynewmodule
-git init .
-git remote add template https://github.com/boxen/puppet-template.git
-git fetch template
-git checkout -b master template/master
-```
-
-Now we're ready to make it our own!
+A personal Puppet module is a great way to keep Boxen clean from many
+pesonal manifests.
+This means that adding a personal configuration is done by adding the module in
+the `Puppetfile`.
 
 ```
-script/cibuild
-.bundle/binstubs/rspec-puppet-init
+github "sergiobuj", "1.0.0", :repo => "sergiobuj/puppet-sergiobuj"
 ```
 
-Now you'll need to edit `manifests/init.pp` and `spec/classes/template_spec.rb`
-for your module.
-If your module has other dependencies, be sure to update
-`spec/fixtures/Puppetfile`.
-From then on, you can use `script/cibuild` to run the tests.
+## Personal module
 
-When you're ready to push:
+I added a class named `sergiobuj` and files defined for installing `dotfiles`,
+`applications` and `preferences`.
+I also have a file for `all`. This would allow us to make sure that everything
+gets installed in boxen when we `include sergiobuj::all` only modifying the
+module version in the `Puppetfile`.
 
 ```
-git create githubusername/puppet-mynewmodule
-git push origin master
+class sergiobuj
+class sergiobuj::all
+class sergiobuj::applications
+class sergiobuj::dotfiles
+class sergiobuj::preferences
+
 ```
 
-The rest of the README as follows can be used as a template for your module's README.
+## Tags
 
-# Template Puppet Module for Boxen
+Remember to tag the version so that you can use it later in the `Puppetfile`.
 
-An example of how we write Puppet modules for Boxen. Replace this
-paragraph with a short explanation of what the heck makes your module
-useful.
-
-A great module has a working travis build
-
-[![Build Status](https://travis-ci.org/boxen/puppet-template.svg?branch=master)](https://travis-ci.org/boxen/puppet-template)
-
-## Usage
-
-```puppet
-boxen::example { 'best example ever':
-  salutation => 'fam'
-}
 ```
+git tag 1.0.0
+git push --tags
+```
+
+## Get your own
+
+Get the puppet-template from https://github.com/boxen/puppet-template and start
+making your own Puppet module.
 
 ## Required Puppet Modules
 
 * `boxen`
-* `anything-else`
 
-## Development
-
-Set `GITHUB_API_TOKEN` in your shell with a [Github oAuth Token](https://help.github.com/articles/creating-an-oauth-token-for-command-line-use) to raise your API rate limit. You can get some work done without it, but you're less likely to encounter errors like `Unable to find module 'boxen/puppet-boxen' on https://github.com`. You can also set this environment variable securely on Travis to ensure your CI builds don't run into the same issue - check out Travis's [docs on repository settings](http://docs.travis-ci.com/user/environment-variables/).
-
-Then write some code. Run `script/cibuild` to test it. Check the `script`
-directory for other useful tools.
