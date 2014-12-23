@@ -20,5 +20,6 @@ github "flux", "1.0.1"
 github "git", "2.7.0"
 github "osx", "2.8.0"
 github "vundle", "0.0.2", :repo => "bdossantos/puppet-vundle"
+github "repository", "2.3.0"
 github "stdlib", "4.4.0", :repo => "puppetlabs/puppetlabs-stdlib"
 
