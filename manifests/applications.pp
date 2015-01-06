@@ -9,7 +9,7 @@ class sergiobuj::applications {
   package {
     [ 'tmux',
       'the_silver_searcher',
-      'editorconfig'
+#      'editorconfig'
     ]:
     ensure => present
   }
