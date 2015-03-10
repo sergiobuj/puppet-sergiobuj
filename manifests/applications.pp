@@ -3,6 +3,7 @@
 class sergiobuj::applications {
   notice('Installing applications for sergiobuj')
 
+  include vim
   include vundle
   include flux
 
